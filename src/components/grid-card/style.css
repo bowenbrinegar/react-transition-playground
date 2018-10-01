@@ -1,0 +1,41 @@
+/* animation styles */ 
+
+.slide-appear {
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 300ms;
+}
+
+.slide-appear.slide-appear-active {
+    transform: scaleY(1);
+}
+
+.slide-enter {
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 300ms;
+}
+
+.slide-enter.slide-enter-active {
+    transform: scaleY(1);
+}
+
+.slide-exit {
+    transform: scaleY(1);
+}
+
+.slide-exit.slide-exit-active {
+    transform-origin: bottom;
+    transform: scaleY(0);
+}
+
+  
+/* component styles */
+
+.grid-card {
+    height: 40px;
+    width: 40px;
+    margin: 10px;
+    float: left;
+    background: lightcoral;
+}
