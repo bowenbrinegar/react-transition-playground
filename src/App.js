@@ -2,29 +2,24 @@ import React, { Component } from 'react';
 import './App.css';
 
 import GridCard from './components/grid-card';
-import Modal from './components/modal';
-
-import { TransitionGroup } from "react-transition-group";
+import Modal from './components/modal'
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       _show_grid: true,
-      _modal_classes: ['modal-container'],
-      _cards: null
+      _modal_classes: ['modal-container']
     }
 
     this.toggleGrid = this.toggleGrid.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
     this.closeAll = this.closeAll.bind(this);
     this.populateGrid = this.populateGrid.bind(this);
-    this.removeItem = this.removeItem.bind(this);
   }
 
   toggleGrid() {
     this.closeAll();
-    this.populateGrid();
     this.setState({_show_grid: true});
   }
 
@@ -49,15 +44,7 @@ class App extends Component {
     }
     this.setState({_cards});
   }
-
-  removeItem(i) {
-    let newItems = this.state._cards.slice();
-		newItems.splice(i, 1);
-		this.setState({
-			_cards: newItems
-    });
-  }
-
+  
   componentWillMount() {
     this.populateGrid();
   }
@@ -73,11 +60,11 @@ class App extends Component {
         </div>
 
         <div id='grid-container'>
-          <div id='card-grid'>
-            <TransitionGroup>
-              {this.state._cards.map((o, i) => <GridCard key={o.key} clickFunc={() => this.removeItem(i)}/>)}
-            </TransitionGroup>
-          </div>
+            {this.state._show_grid ? (
+              <div id='card-grid'>
+                  {this.state._cards.map(o => <GridCard key={o.key}/>)}
+              </div>
+            ) : null}
         </div>
 
         <div id='modal-container'>

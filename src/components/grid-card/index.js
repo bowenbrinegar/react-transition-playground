@@ -6,9 +6,9 @@ import { CSSTransition } from "react-transition-group";
 export default class GridCard extends React.Component {
     render() {
         return (
-            <div>
-                <CSSTransition appear in classNames="slide" timeout={300} >
-                    <div onClick={this.props.clickFunc} className='grid-card'></div>
+            <div onClick={this.props.clickFunc}>
+                <CSSTransition appear in key={this.props.dataId} classNames="slide" timeout={300} >
+                    <div data-id={this.props.key} className='grid-card'></div>
                 </CSSTransition>
             </div>
         )

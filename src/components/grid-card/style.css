@@ -21,12 +21,12 @@
 }
 
 .slide-exit {
-    transform: scaleY(1);
+    opacity: 1;
 }
 
 .slide-exit.slide-exit-active {
-    transform-origin: bottom;
-    transform: scaleY(0);
+    opacity: 0;
+    transition: opacity 300ms;
 }
 
   
